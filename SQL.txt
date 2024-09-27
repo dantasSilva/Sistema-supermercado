@@ -1,0 +1,14 @@
+QUESTÃO 1:
+select c.ID_Compra, sum(c.Quantidade*p.Preco_Unitario) as Valor_Total from compras c join produtos p on
+p.ID_Produto = c.ID_Produto
+group by c.ID_Compra;
+
+QUESTÃO 2:
+select p.Nome_Produto, c.Quantidade from produtos p join compras c on 
+p.ID_Produto = c.ID_Produto
+where c.Quantidade =(select max(Quantidade) from compras);
+
+QUESTÃO3:
+select p.Nome_Produto, count(*) from produtos p join compras c on 
+p.ID_Produto = c.ID_Produto
+group by p.Nome_Produto;
